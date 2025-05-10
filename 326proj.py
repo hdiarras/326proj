@@ -1,3 +1,10 @@
+"""
+Final Project for INST326
+Author: Nahum, Hawa, Komal, Zara
+Date: 12/10/2023
+Description: This code provides a GPA calculator, course schedule, course details, and assignment tracker for students.
+"""
+
 class Gpa:
     """
     Calculates GPA based on the UMD grading scale.
@@ -91,55 +98,66 @@ class Gpa:
     
 class Schedule:
     """
-    Displays what days of the week the course meets, at what time, where, and when the final exams are.
+    Displays course meeting times, location, and final exam dates.
 
-    Attributes
-    ------------
-    class_times:
-    hall:
-    exam_dates:
-    #if making this a list with imbedded lists is easier go for that
-    
-    Returns
-    -------------
+    Attributes:
+        schedule (dict): Dictionary with course code as key and list of [days, time, hall, exam date] as value.
     """
-    
-    def __init__(self, class_times, hall, exam_dates):
-        pass
+    def __init__(self):
+        self.schedule = {}
 
-class Course_details:
-    """
-    This displays the details of the course.
-    
-    Attributes
-    -----------
-    class_times:
-    hall:
-    exam_dates:
-     #if making this a list with imbedded lists is easier go for that
-    
-    Returns
-    --------
-    """
-    
-    def __init__(self, professor, students, ta):
-        pass
-    
-class Assignment_tracker:
-    """
-    This stores all the assignments for a course, their due dates, the weight of each assignment, and the grade received. 
-    
-    Attributes
-    -----------
-    professor:
-    students:
-    ta:
-    #if making this a list with imbedded lists is easier go for that
-    
-    Returns
-    --------
+    def add_course_schedule(self, course_code, days, time, hall, exam_date):
+        self.schedule[course_code] = [days, time, hall, exam_date]
 
+    def get_schedule(self, course_code):
+        return self.schedule.get(course_code, "Course not found")
+
+
+class CourseDetails:
     """
-    
-    def __init__(self, assignment, due_date, grade, weight):
-        pass
+    Displays professor, TAs, and student names.
+
+    Attributes:
+        details: Keys are 'professor', 'TAs', and 'students'
+    """
+    def __init__(self):
+        self.details = {
+            'professor': None,
+            'TAs': [],
+            'students': []
+            }
+
+    def set_professor(self, name):
+        self.details['professor'] = name
+
+    def add_ta(self, name):
+        self.details['TAs'].append(name)
+
+    def add_student(self, name):
+        self.details['students'].append(name)
+
+    def get_details(self):
+        return self.details
+
+
+class AssignmentTracker:
+    """
+    Tracks assignments, due dates, grades, and weights.
+
+    Attributes:
+        assignments: List of tuples in format (name, due_date, grade, weight)
+    """
+    def __init__(self):
+        self.assignments = []
+
+    def add_assignment(self, name, due_date, grade, weight):
+        self.assignments.append((name, due_date, grade, weight))
+
+    def get_assignments(self):
+        return self.assignments
+
+    def get_assignment_by_name(self, name):
+        for assignment in self.assignments:
+            if assignment[0] == name:
+                return assignment
+        return "Assignment not found"
