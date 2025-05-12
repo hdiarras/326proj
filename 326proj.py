@@ -38,29 +38,27 @@ class Gpa:
         Returns:
             float: The GPA equivalent.
         """
-        if percent >= 97:
+        if percent >= 93:
             return 4.0
-        elif percent >= 93:
-            return 4.0
-        elif percent >= 90:
+        elif percent >= 90 and percent < 93:
             return 3.7
-        elif percent >= 87:
+        elif percent >= 87 and percent < 90:
             return 3.3
-        elif percent >= 83:
+        elif percent >= 83 and percent < 87:
             return 3.0
-        elif percent >= 80:
+        elif percent >= 80 and percent < 83:
             return 2.7
-        elif percent >= 77:
+        elif percent >= 77 and percent < 80:
             return 2.3
-        elif percent >= 73:
+        elif percent >= 73 and percent < 77:
             return 2.0
-        elif percent >= 70:
+        elif percent >= 70 and percent < 73:
             return 1.7
-        elif percent >= 67:
+        elif percent >= 67 and percent < 70:
             return 1.3
-        elif percent >= 63:
+        elif percent >= 63 and percent < 67:
             return 1.0
-        elif percent >= 60:
+        elif percent >= 60 and percent < 63:
             return 0.7
         else:
             return 0.0
