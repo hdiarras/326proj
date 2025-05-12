@@ -1,7 +1,7 @@
 """
 Final Project for INST326
 Author: Nahum, Hawa, Komal, Zara
-Date: 12/10/2023
+Date: 04/25/2025
 Description: This code provides a GPA calculator, course schedule, course details, and assignment tracker for students.
 """
 
