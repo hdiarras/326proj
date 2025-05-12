@@ -85,16 +85,6 @@ class Gpa:
         if total_credits == 0:
             return 0.0  # Avoid division by zero
         return round(total_quality_points / total_credits, 3)
-
-# Example usage
-'''if __name__ == "__main__":
-    gpa_calculator = Gpa()
-    gpa_calculator.add_course("INST326", 92, 3)
-    gpa_calculator.add_course("INST311", 85, 3)
-    gpa_calculator.add_course("INST201", 97, 3)
-
-    final_gpa = gpa_calculator.calculate_gpa()
-    print(f"\nCumulative GPA: {final_gpa}")'''
     
 class Schedule:
     """
@@ -161,3 +151,17 @@ class AssignmentTracker:
             if assignment[0] == name:
                 return assignment
         return "Assignment not found"
+
+# Test the Gpa class
+if __name__ == "__main__":
+    gpa_calc = Gpa()
+    
+    # Add some test courses
+    gpa_calc.add_course("INST311", 95, 3)
+    gpa_calc.add_course("INST327", 88, 3)
+    gpa_calc.add_course("PLSC205", 76, 4)
+
+    # Print out the GPA for each course
+    for course, percentage, credits in gpa_calc.courses:
+        gpa = gpa_calc.percentage_to_gpa(percentage)
+        print(f"{course}: {percentage}% -> GPA: {gpa} ({credits} credits)")
