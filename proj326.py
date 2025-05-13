@@ -81,7 +81,7 @@ class Gpa:
             print(f"{course_name}: {percent}% -> GPA {gpa} ({credits} credits)")
 
         if total_credits == 0:
-            return 0.0  # Avoid division by zero
+            return 0.0  
         return round(total_quality_points / total_credits, 3)
     
 class Schedule:
