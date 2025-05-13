@@ -70,13 +70,13 @@ class Gpa:
         Returns:
             float: The cumulative GPA rounded to 3 decimal places.
         """
-        total_quality_points = 0
+        total_points = 0
         total_credits = 0
 
         for course_name, percent, credits in self.courses:
             gpa = self.percentage_to_gpa(percent)
-            quality_points = gpa * credits
-            total_quality_points += quality_points
+            points = gpa * credits
+            total_points += points
             total_credits += credits
             print(f"{course_name}: {percent}% -> GPA {gpa} ({credits} credits)")
 
