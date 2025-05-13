@@ -99,7 +99,31 @@ class Schedule:
 
     def get_schedule(self, course_code):
         return self.schedule.get(course_code, "Course not found")
+    
+'''
+# Demo usage
+    def display_all_schedules(self):
+        """
+        Prints the schedule for all courses.
+        """
+        for course, details in self.schedule.items():
+            print(f"{course}: Days: {details[0]}, Time: {details[1]}, Hall: {details[2]}, Exam: {details[3]}")
 
+# Create instance of Schedule
+demo_schedule = Schedule()
+
+# Add sample course schedules
+demo_schedule.add_course_schedule("INST326", "MWF", "10:00 AM", "IRB107", "May_12")
+demo_schedule.add_course_schedule("ENGL101", "TTh", "2:00 PM", "TWS301", "May_14")
+demo_schedule.add_course_schedule("STAT100", "MWF", "11:00 AM", "PLS123", "May_15")
+
+# Display all schedules
+demo_schedule.display_all_schedules()
+
+# Retrieve a single course's schedule
+print("\nDetails for ENGL101:")
+print(demo_schedule.get_schedule("ENGL101"))
+'''
 
 class CourseDetails:
     """
@@ -127,6 +151,31 @@ class CourseDetails:
     def get_details(self):
         return self.details
 
+'''
+# Demo usage
+# Create an instance of CourseDetails
+cd = CourseDetails()
+
+# Set the professor
+cd.set_professor("Prof. Gabriel Cruz")
+
+# Add TAs
+cd.add_ta("Jian Zheng")
+cd.add_ta("Koushik Alapati")
+
+# Add students
+cd.add_student("Nahum Muana")
+cd.add_student("Zara Baig")
+cd.add_student("Komal Jha")
+cd.add_student("Hawa Diarrassouba")
+
+# Display course details
+details = cd.get_details()
+print("Course Details:")
+print(f"Professor: {details['professor']}")
+print("TAs:", ", ".join(details['TAs']))
+print("Students:", ", ".join(details['students']))
+'''
 
 class AssignmentTracker:
     """
@@ -149,6 +198,22 @@ class AssignmentTracker:
             if assignment[0] == name:
                 return assignment
         return "Assignment not found"
+
+'''
+# Demo usage
+if __name__ == "__main__":
+    tracker = AssignmentTracker()
+
+    # Add assignments
+    tracker.add_assignment("Homework_1", "2025/05/15", 90, 0.2)
+    tracker.add_assignment("Excersice_5", "2025/05/20", 85, 0.3)
+    tracker.add_assignment("Final_Project", "2025/06/01", None, 0.5)  # not graded yet
+
+    # List all assignments
+    print("All Assignments:")
+    for assignment in tracker.get_assignments():
+        print(f"{assignment[0]}\n-- Due: {assignment[1]},\n-- Grade: {assignment[2]}%,\n-- Weight: {assignment[3]}")
+'''
 
 # Test the Gpa class
 if __name__ == "__main__":
